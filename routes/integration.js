@@ -7,7 +7,7 @@ Router.get('/',(req, res, next)=>{
 })
 
 Router.get('/login', (req, res, next)=>{
-    let loginController = new loginController(req, res, next);
+    let loginController = new LoginController(req, res, next);
     loginController.index();
 })
 
