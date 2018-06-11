@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var expresssesions = require('express-sessions');
+var expresssesions = require('express-session');
 let admins = require('./routes/admin');
 
 var app = express();
@@ -14,6 +14,15 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+//gestion de sesiones anyadido
+app.use(expresssesions({
+  secret: 'LuisJuradoAcadamy',
+  name: 'SesionLuis',
+  resave: true,
+  saveUninitialized: true
+}));
+
 
 app.use(logger('dev'));
 app.use(express.json());
