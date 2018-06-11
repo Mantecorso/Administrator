@@ -7,14 +7,19 @@ Router.get('/',(req,res,next)=>{
 
 Router.get('/create',(req,res,next)=>{
     req.session.username="Luisito";
+    req.session.isAdmin = true;
     res.redirect('/admin');
  })
+//flash session npm install -S connect-flash
 
+
+ //elimina una cockie
  Router.get('/remove',(req,res,next)=>{
     req.session.username=null;
     res.redirect('/admin');
  })
 
+ //elimina todas las cokies guardadas
  Router.get('/destroy',(req,res,next)=>{
     req.session.destroy();
     res.redirect('/admin');
